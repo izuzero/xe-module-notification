@@ -11,7 +11,9 @@ class notification extends ModuleObject
 
 	protected static $triggers = array();
 
-	private static $classes = array();
+	private static $classes = array(
+		'classes/polyfill/autoload.php'
+	);
 
 	public function __construct()
 	{
