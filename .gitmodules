@@ -1,0 +1,3 @@
+[submodule "classes/polyfill/msgpack"]
+	path = classes/polyfill/msgpack
+	url = https://github.com/onlinecity/msgpack-php.git
