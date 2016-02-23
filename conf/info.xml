@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+	<title xml:lang="ko">알림</title>
+	<description xml:lang="ko">인스턴트 알림을 관리하고 실시간 통신 API를 제공합니다.</description>
+	<version>1.0.0</version>
+	<date>2016-02-24</date>
+	<category>utility</category>
+	<author email_address="contact@eunsoogi.com" link="http://www.eunsoogi.com/">
+		<name xml:lang="ko">이은수</name>
+	</author>
+</module>

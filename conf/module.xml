@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<grants />
+	<permissions />
+	<actions />
+	<menus>
+		<menu name="notification" type="all">
+			<title xml:lang="ko">알림</title>
+		</menu>
+	</menus>
+</module>
