@@ -12,7 +12,12 @@ class notification extends ModuleObject
 	protected static $triggers = array();
 
 	private static $classes = array(
-		'classes/polyfill/autoload.php'
+		'classes/polyfill/autoload.php',
+		'classes/entity/Item/Plugin.php',
+		'classes/entity/Item/InstantNotification.php',
+		'classes/entity/PublishSubscribeModel/Standalone.php',
+		'classes/entity/PublishSubscribeModel/SocketIO.php',
+		'classes/entity/PublishSubscribeModel/ServerSentEvents.php'
 	);
 
 	public function __construct()
