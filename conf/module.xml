@@ -2,7 +2,9 @@
 <module>
 	<grants />
 	<permissions />
-	<actions />
+	<actions>
+		<action name="dispNotificationAdminPlugins" type="view" menu_name="notification" menu_index="true" admin_index="true" />
+	</actions>
 	<menus>
 		<menu name="notification" type="all">
 			<title xml:lang="ko">알림</title>
