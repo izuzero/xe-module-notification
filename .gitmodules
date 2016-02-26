@@ -4,3 +4,6 @@
 [submodule "classes/polyfill/lcfirst"]
 	path = classes/polyfill/lcfirst
 	url = https://github.com/izuzero/php-polyfill-lcfirst.git
+[submodule "libraries/polyfill/EventSource"]
+	path = libraries/polyfill/EventSource
+	url = https://github.com/Yaffle/EventSource.git
