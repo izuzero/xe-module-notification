@@ -13,11 +13,12 @@ class notification extends ModuleObject
 
 	private static $classes = array(
 		'classes/polyfill/autoload.php',
+		'classes/entity/Item/Cache.php',
 		'classes/entity/Item/Plugin.php',
 		'classes/entity/Item/InstantNotification.php',
 		'classes/entity/PublishSubscribeModel/Standalone.php',
-		'classes/entity/PublishSubscribeModel/SocketIO.php',
-		'classes/entity/PublishSubscribeModel/ServerSentEvents.php'
+		'classes/entity/PublishSubscribeModel/ServerSentEvents.php',
+		'classes/entity/PublishSubscribeModel/SocketIO.php'
 	);
 
 	public function __construct()
@@ -26,7 +27,7 @@ class notification extends ModuleObject
 
 		foreach (self::$classes as $class)
 		{
-			require_once sprintf('%s%s%s', _XE_PATH_, $module_path, $class);
+			require_once FileHandler::getRealPath(sprintf('%s%s', $module_path, $class));
 		}
 	}
 
