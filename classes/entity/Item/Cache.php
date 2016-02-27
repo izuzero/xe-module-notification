@@ -20,6 +20,9 @@ class Cache
 			$group = NULL;
 		}
 
+		$key = md5($key);
+		$group = md5($group);
+
 		if ($group)
 		{
 			$key = sprintf('%s:%s', $group, $key);
