@@ -2,6 +2,7 @@
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
 namespace Notification\Entity\Item;
+use InvalidArgumentException;
 use CacheHandler;
 
 class Cache
@@ -22,6 +23,11 @@ class Cache
 
 		$key = md5($key);
 		$group = md5($group);
+
+		if (!$key)
+		{
+			throw new InvalidArgumentException('Cache handle failed.');
+		}
 
 		if ($group)
 		{
