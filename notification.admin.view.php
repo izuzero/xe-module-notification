@@ -5,17 +5,30 @@ class notificationAdminView extends notification
 {
 	public function init()
 	{
-		$this->__setTplPath();
+		$this->setTplPath();
 	}
 
 	public function dispNotificationAdminPlugins()
 	{
+		$req = new stdClass();
+		$req->page = Context::get('page');
+		$req->page_count = Context::get('page_count');
+		$req->list_count = Context::get('list_count');
+		$req->sort_index = Context::get('sort_index');
+		$req->order_type = Context::get('order_type');
+
+		$this->setPluginList('plugin_list', $req);
 	}
 
-	protected function __setTplPath()
+	protected function setTplPath()
 	{
 		$this->setTemplatePath($this->module_path . 'tpl');
 		$this->setTemplateFile(lcfirst(str_replace('dispNotificationAdmin', '', $this->act)));
+	}
+
+	protected function setPluginList($key, stdClass $req)
+	{
+		Context::set($key, getModel('notification')->getPluginList($req));
 	}
 }
 
