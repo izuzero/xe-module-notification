@@ -11,5 +11,5 @@ class InstantNotification extends Object
 	}
 }
 
-/* End of file instantNotification.item.php */
-/* Location: ./modules/notification/classes/entity/instantNotification.item.php */
+/* End of file instantNotification.php */
+/* Location: ./modules/notification/classes/entity/Item/InstantNotification.php */
