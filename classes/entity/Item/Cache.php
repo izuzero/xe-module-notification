@@ -66,10 +66,15 @@ class Cache
 	{
 		if (is_null($value))
 		{
-			return $this->handle('delete', $this->keystring);
+			return $this->delete();
 		}
 
 		return $this->handle('put', array($this->keystring, $value, $expire));
+	}
+
+	public function delete()
+	{
+		return $this->handle('delete', $this->keystring);
 	}
 
 	public function isValid($modified = 0)
@@ -77,16 +82,9 @@ class Cache
 		return $this->handle('isValid', array($this->keystring, $modified));
 	}
 
-	public function invalidate()
+	public static function invalidate()
 	{
-		return $this->handle('invalidateGroupKey', 'notification');
-	}
-
-	public static function delete($group, $key = NULL)
-	{
-		$oCache = new self($group, $key);
-
-		return $oCache->set(NULL);
+		return CacheHandler::getInstance()->invalidateGroupKey('notification');
 	}
 }
 

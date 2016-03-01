@@ -95,7 +95,7 @@ class Plugin extends Item
 
 		if ($res->toBool())
 		{
-			$this->oCache->set(NULL);
+			$this->oCache->delete();
 		}
 
 		return $res->toBool();
@@ -108,7 +108,7 @@ class Plugin extends Item
 		if ($res->toBool())
 		{
 			$this->truncate();
-			$this->oCache->set(NULL);
+			$this->oCache->delete();
 		}
 
 		return $res->toBool();
@@ -120,7 +120,7 @@ class Plugin extends Item
 
 		if ($res->toBool())
 		{
-			$this->oCache->set(NULL);
+			$this->oCache->delete();
 		}
 
 		return $res->toBool();
