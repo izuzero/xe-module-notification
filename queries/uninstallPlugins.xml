@@ -1,0 +1,11 @@
+<query id="uninstallPlugins" action="update">
+	<tables>
+		<table name="notification_plugins" />
+	</tables>
+	<columns>
+		<column name="installed" default="N" />
+	</columns>
+	<conditions>
+		<condition operation="in" column="name" var="names" notnull="notnull" />
+	</conditions>
+</query>

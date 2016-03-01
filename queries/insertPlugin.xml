@@ -1,0 +1,12 @@
+<query id="insertPlugin" action="insert">
+	<tables>
+		<table name="notification_plugins" />
+	</tables>
+	<columns>
+		<column name="name" var="name" minlength="1" maxlength="250" notnull="notnull" />
+		<column name="on_screen" var="on_screen" />
+		<column name="on_mobile" var="on_mobile" />
+		<column name="installed" var="installed" />
+		<column name="extra_vars" var="extra_vars" />
+	</columns>
+</query>

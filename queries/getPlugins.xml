@@ -1,0 +1,17 @@
+<query id="getPlugins" action="select">
+	<tables>
+		<table name="notification_plugins" />
+	</tables>
+	<columns>
+		<column name="*" />
+	</columns>
+	<conditions>
+		<condition operation="in" column="name" var="names" />
+		<condition operation="equal" column="on_screen" var="on_screen" pipe="and" />
+		<condition operation="equal" column="on_mobile" var="on_mobile" pipe="and" />
+		<condition operation="equal" column="installed" var="installed" pipe="and" />
+	</conditions>
+	<navigation>
+		<index var="sort_index" default="name" order="order_type" />
+	</navigation>
+</query>

@@ -1,0 +1,11 @@
+<query id="organizePlugins" action="update">
+	<tables>
+		<table name="notification_plugins" />
+	</tables>
+	<columns>
+		<column name="installed" default="N" />
+	</columns>
+	<conditions>
+		<condition operation="notin" column="name" var="names" notnull="notnull" />
+	</conditions>
+</query>

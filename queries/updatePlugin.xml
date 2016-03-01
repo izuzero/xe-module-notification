@@ -1,0 +1,14 @@
+<query id="updatePlugin" action="update">
+	<tables>
+		<table name="notification_plugins" />
+	</tables>
+	<columns>
+		<column name="on_screen" var="on_screen" />
+		<column name="on_mobile" var="on_mobile" />
+		<column name="installed" var="installed" />
+		<column name="extra_vars" var="extra_vars" />
+	</columns>
+	<conditions>
+		<condition operation="equal" column="name" var="name" notnull="notnull" />
+	</conditions>
+</query>
