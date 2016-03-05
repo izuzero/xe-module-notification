@@ -5,7 +5,6 @@
 	<columns>
 		<column name="on_screen" var="on_screen" />
 		<column name="on_mobile" var="on_mobile" />
-		<column name="installed" var="installed" />
 		<column name="extra_vars" var="extra_vars" />
 	</columns>
 	<conditions>

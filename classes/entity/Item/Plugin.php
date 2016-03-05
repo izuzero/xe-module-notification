@@ -52,11 +52,6 @@ class Plugin extends Item
 
 			if (!(is_array($res) && count($res)))
 			{
-				if (!$this->restore())
-				{
-					return FALSE;
-				}
-
 				$req = new stdClass();
 				$req->name = $name;
 
@@ -103,57 +98,10 @@ class Plugin extends Item
 
 	public function expire()
 	{
-		$res = self::expireWithName($this->get('name'));
+		$this->truncate();
+		$this->oCache->delete();
 
-		if ($res->toBool())
-		{
-			$this->truncate();
-			$this->oCache->delete();
-		}
-
-		return $res->toBool();
-	}
-
-	public function restore()
-	{
-		$res = self::restoreWithName($this->get('name'));
-
-		if ($res->toBool())
-		{
-			$this->oCache->delete();
-		}
-
-		return $res->toBool();
-	}
-
-	public static function vitalize()
-	{
-		$req = new stdClass();
-		$req->names = $list = self::getList();
-
-		$res = self::importsInstalled($req)->data;
-
-		foreach ($res as $key => $val)
-		{
-			$list = array_diff($list, array($val->name));
-		}
-
-		$oPlugins = array();
-
-		foreach ($list as $key => $val)
-		{
-			$oPlugins[] = new self($val);
-		}
-
-		return $oPlugins;
-	}
-
-	public static function organize()
-	{
-		$req = new stdClass();
-		$req->names = self::getList();
-
-		return executeQuery('notification.organizePlugins', $req);
+		return TRUE;
 	}
 
 	public static function import(stdClass $req)
@@ -179,11 +127,6 @@ class Plugin extends Item
 		return executeQueryArray('notification.getPlugins', $req);
 	}
 
-	public static function importsInstalled(stdClass $req)
-	{
-		return executeQueryArray('notification.getInstalledPlugins', $req);
-	}
-
 	public static function importList(stdClass $req)
 	{
 		return executeQueryArray('notification.getPluginList', $req);
@@ -205,38 +148,6 @@ class Plugin extends Item
 		}
 
 		return executeQuery('notification.insertPlugin', $req);
-	}
-
-	public static function expireWithName($name)
-	{
-		$req = new stdClass();
-		$req->name = $name;
-
-		return executeQuery('notification.uninstallPlugin', $req);
-	}
-
-	public static function expireWithNames(array $names)
-	{
-		$req = new stdClass();
-		$req->names = $names;
-
-		return executeQuery('notification.uninstallPlugins', $req);
-	}
-
-	public static function restoreWithName($name)
-	{
-		$req = new stdClass();
-		$req->name = $name;
-
-		return executeQuery('notification.restorePlugin', $req);
-	}
-
-	public static function restoreWithNames(array $names)
-	{
-		$req = new stdClass();
-		$req->names = $names;
-
-		return executeQuery('notification.restorePlugins', $req);
 	}
 
 	public static function getList()
@@ -267,19 +178,23 @@ class Plugin extends Item
 
 	public static function getInstanceList(stdClass $req)
 	{
-		self::organize();
-		self::vitalize();
+		$list = self::getList();
+		$oPlugins = array();
 
-		$list = self::importList($req);
-
-		foreach ($list->data as $key => $val)
+		foreach ($list as $plugin)
 		{
-			$oPlugin = new self();
-			$oPlugin->initialize($val->name, (array)$val);
-			$list->data[$key] = $oPlugin;
+			$oPlugin = new self($plugin);
+
+			$target = $oPlugin->getAll();
+			$condition = (array)$req;
+
+			if (!array_diff_assoc(array_intersect_key($target, $condition), $condition))
+			{
+				$oPlugins[] = $oPlugin;
+			}
 		}
 
-		return $list;
+		return new Page($oPlugins, $req->page, $req->paginate, $req->countWith);
 	}
 }
 

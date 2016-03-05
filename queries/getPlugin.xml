@@ -7,6 +7,5 @@
 	</columns>
 	<conditions>
 		<condition operation="equal" column="name" var="name" notnull="notnull" />
-		<condition operation="equal" column="installed" var="installed" pipe="and" />
 	</conditions>
 </query>

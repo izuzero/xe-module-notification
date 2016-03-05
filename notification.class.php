@@ -14,6 +14,7 @@ class notification extends ModuleObject
 	private static $classes = array(
 		'classes/polyfill/autoload.php',
 		'classes/entity/Item/Cache.php',
+		'classes/entity/Item/Page.php',
 		'classes/entity/Item/Plugin.php',
 		'classes/entity/Item/InstantNotification.php',
 		'classes/entity/PublishSubscribeModel/Standalone.php',

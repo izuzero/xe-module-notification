@@ -12,10 +12,8 @@ class notificationAdminView extends notification
 	{
 		$req = new stdClass();
 		$req->page = Context::get('page');
-		$req->page_count = Context::get('page_count');
-		$req->list_count = Context::get('list_count');
-		$req->sort_index = Context::get('sort_index');
-		$req->order_type = Context::get('order_type');
+		$req->paginate = Context::get('paginate');
+		$req->countWith = Context::get('countWith');
 
 		$this->setPluginList('plugin_list', $req);
 	}
