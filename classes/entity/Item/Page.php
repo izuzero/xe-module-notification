@@ -87,7 +87,7 @@ class Page extends Item
 		$page = $this->get('page');
 		$countWith = $this->get('countWith');
 
-		return $page > 0 ? array_slice($this->list, ($page - 1) * $countWith, $countWith) : array();
+		return $page > 0 ? array_slice($this->list, ($page - 1) * $countWith, $countWith, TRUE) : array();
 	}
 }
 
