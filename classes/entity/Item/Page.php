@@ -15,17 +15,17 @@ class Page extends Item
 	{
 		if (!isset($page))
 		{
-			$req->page = 1;
+			$page = 1;
 		}
 
 		if (!isset($paginate))
 		{
-			$req->paginate = 10;
+			$paginate = 10;
 		}
 
 		if (!isset($countWith))
 		{
-			$req->countWith = 20;
+			$countWith = 20;
 		}
 
 		$this->list = $list;
