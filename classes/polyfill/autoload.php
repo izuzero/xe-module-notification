@@ -10,7 +10,7 @@ foreach ($classesMap as $class => $methods)
 {
 	if (!in_array(TRUE, array_map('function_exists', $methods)))
 	{
-		require_once $class;
+		require_once __DIR__ . '/' . $class;
 	}
 }
 

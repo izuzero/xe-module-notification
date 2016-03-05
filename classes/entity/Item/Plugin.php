@@ -2,10 +2,13 @@
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
 namespace Notification\Entity\Item;
+require_once __DIR__ . '/Item.php';
+require_once __DIR__ . '/../Util/Cache.php';
 use stdClass;
 use FileHandler;
 use ModuleHandler;
 use XmlParser;
+use Notification\Entity\Util\Cache;
 
 class Plugin extends Item
 {

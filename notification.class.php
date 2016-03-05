@@ -13,10 +13,6 @@ class notification extends ModuleObject
 
 	private static $classes = array(
 		'classes/polyfill/autoload.php',
-		'classes/entity/Item/ItemInterface.php',
-		'classes/entity/Item/Item.php',
-		'classes/entity/Item/Cache.php',
-		'classes/entity/Item/PageHandler.php',
 		'classes/entity/Item/Page.php',
 		'classes/entity/Item/Plugin.php',
 		'classes/entity/Item/InstantNotification.php',
@@ -31,7 +27,7 @@ class notification extends ModuleObject
 
 		foreach (self::$classes as $class)
 		{
-			require_once FileHandler::getRealPath(sprintf('%s%s', $module_path, $class));
+			require_once __DIR__ . '/' . $class;
 		}
 	}
 

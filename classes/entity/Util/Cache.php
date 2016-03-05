@@ -1,7 +1,7 @@
 <?php
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
-namespace Notification\Entity\Item;
+namespace Notification\Entity\Util;
 use InvalidArgumentException;
 use CacheHandler;
 
@@ -89,4 +89,4 @@ class Cache
 }
 
 /* End of file Cache.php */
-/* Location: ./modules/notification/classes/entity/Item/Cache.php */
+/* Location: ./modules/notification/classes/entity/Util/Cache.php */

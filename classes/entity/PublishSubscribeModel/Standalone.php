@@ -2,7 +2,7 @@
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
 namespace Notification\Entity\PublishSubscribeModel;
-require_once 'PublishSubscribeInterface.php';
+require_once __DIR__ . '/PublishSubscribeInterface.php';
 
 class Standalone implements PublishSubscribeInterface
 {

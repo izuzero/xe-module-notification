@@ -2,6 +2,7 @@
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
 namespace Notification\Entity\Item;
+require_once __DIR__ . '/Item.php';
 
 class PageHandler extends Item
 {

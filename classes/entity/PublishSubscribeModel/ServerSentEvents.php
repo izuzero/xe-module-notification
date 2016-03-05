@@ -2,7 +2,7 @@
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
 namespace Notification\Entity\PublishSubscribeModel;
-require_once 'RequestInterface.php';
+require_once __DIR__ . '/RequestInterface.php';
 
 class ServerSentEvents implements RequestInterface
 {

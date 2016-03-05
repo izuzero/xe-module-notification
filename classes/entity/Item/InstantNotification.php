@@ -2,9 +2,9 @@
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
 namespace Notification\Entity\Item;
-use Object;
+require_once __DIR__ . '/Item.php';
 
-class InstantNotification extends Object
+class InstantNotification extends Item
 {
 	public function __construct()
 	{
