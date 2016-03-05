@@ -1,9 +1,9 @@
-[submodule "classes/polyfill/msgpack"]
-	path = classes/polyfill/msgpack
+[submodule "classes/Polyfill/msgpack"]
+	path = classes/Polyfill/msgpack
 	url = https://github.com/onlinecity/msgpack-php.git
-[submodule "classes/polyfill/lcfirst"]
-	path = classes/polyfill/lcfirst
+[submodule "classes/Polyfill/lcfirst"]
+	path = classes/Polyfill/lcfirst
 	url = https://github.com/izuzero/php-polyfill-lcfirst.git
-[submodule "libraries/polyfill/EventSource"]
-	path = libraries/polyfill/EventSource
+[submodule "libraries/Polyfill/EventSource"]
+	path = libraries/Polyfill/EventSource
 	url = https://github.com/Yaffle/EventSource.git
