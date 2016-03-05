@@ -1,7 +1,7 @@
 <?php
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
-require_once 'notification.view.php';
+require_once __DIR__ . '/notification.view.php';
 
 class notificationMobile extends notificationView
 {
