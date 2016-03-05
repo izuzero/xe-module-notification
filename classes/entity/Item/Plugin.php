@@ -2,7 +2,6 @@
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
 namespace Notification\Entity\Item;
-require_once 'Item.php';
 use stdClass;
 use FileHandler;
 use ModuleHandler;

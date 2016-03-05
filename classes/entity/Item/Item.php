@@ -2,7 +2,6 @@
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
 namespace Notification\Entity\Item;
-require_once 'ItemInterface.php';
 
 abstract class Item implements ItemInterface
 {
