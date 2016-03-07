@@ -1,6 +1,3 @@
-[submodule "classes/Polyfill/lcfirst"]
-	path = classes/Polyfill/lcfirst
-	url = https://github.com/izuzero/php-polyfill-lcfirst.git
 [submodule "classes/Polyfill/msgpack"]
 	path = classes/Polyfill/msgpack
 	url = https://github.com/onlinecity/msgpack-php.git
