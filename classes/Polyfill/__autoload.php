@@ -2,7 +2,6 @@
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
 $classesMap = array(
-	'lcfirst/lcfirst.php' => array('lcfirst'),
 	'msgpack/msgpack.php' => array('msgpack_pack', 'msgpack_unpack')
 );
 
