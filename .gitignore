@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+/vendor/
+composer.phar
+composer.lock
+.idea
+*.sublime-workspace
+*.sublime-project
+.codeintel
