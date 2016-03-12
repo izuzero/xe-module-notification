@@ -2,9 +2,8 @@
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
 namespace Notification\Entity\PublishSubscribeModel;
-require_once __DIR__ . '/RequestInterface.php';
 
-class ServerSentEvents implements RequestInterface
+class ServerSentEvents implements PublishSubscribeInterface
 {
 	public function __construct()
 	{

@@ -1,6 +1,8 @@
 <?php
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
+require_once __DIR__ . '/vendor/autoload.php';
+
 class notification extends ModuleObject
 {
 	public static $default_config = array();
@@ -10,26 +12,6 @@ class notification extends ModuleObject
 	protected static $indexes = array();
 
 	protected static $triggers = array();
-
-	private static $classes = array(
-		'classes/Polyfill/__autoload.php',
-		'classes/Entity/Item/Page.php',
-		'classes/Entity/Item/Plugin.php',
-		'classes/Entity/Item/InstantNotification.php',
-		'classes/Entity/PublishSubscribeModel/Standalone.php',
-		'classes/Entity/PublishSubscribeModel/ServerSentEvents.php',
-		'classes/Entity/PublishSubscribeModel/SocketIO.php'
-	);
-
-	public function __construct()
-	{
-		$module_path = ModuleHandler::getModulePath('notification');
-
-		foreach (self::$classes as $class)
-		{
-			require_once __DIR__ . '/' . $class;
-		}
-	}
 
 	public function moduleInstall()
 	{

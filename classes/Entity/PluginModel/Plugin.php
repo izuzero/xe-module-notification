@@ -1,22 +1,24 @@
 <?php
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
-namespace Notification\Entity\Item;
-require_once __DIR__ . '/Item.php';
-require_once __DIR__ . '/../../Util/Cache.php';
+namespace Notification\Entity\PluginModel;
 use stdClass;
 use XmlParser;
 use FileHandler;
 use ModuleHandler;
+use Notification\Entity\Item\Item;
+use Notification\Entity\PageModel\Page;
 use Notification\Util\Cache;
 
 class Plugin extends Item
 {
 	private static $list = array();
 
-	protected $oCache = NULL;
-
 	protected $oInfo = NULL;
+
+	protected $oAttach = NULL;
+
+	protected $oCache = NULL;
 
 	public function __construct($name = NULL)
 	{
@@ -129,6 +131,16 @@ class Plugin extends Item
 		return $this->oInfo = self::getXmlInfo($name, $extra_vars);
 	}
 
+	public function getAttach()
+	{
+		if (isset($this->oAttach))
+		{
+			return $this->oAttach;
+		}
+
+		return $this->oAttach = new AttachList($this->get('name'));
+	}
+
 	public static function import(stdClass $req)
 	{
 		if ($req->extra_vars)
@@ -201,6 +213,24 @@ class Plugin extends Item
 		return self::$list = $list;
 	}
 
+	public static function getInstances(array $names = array())
+	{
+		if (!count($names))
+		{
+			$names = self::getList();
+		}
+
+		$names = array_intersect($names, self::getList());
+		$oPlugins = array();
+
+		foreach ($names as $name)
+		{
+			$oPlugins[$name] = new self($name);
+		}
+
+		return $oPlugins;
+	}
+
 	public static function getInstanceList(stdClass $req)
 	{
 		$list = self::getList();
@@ -257,6 +287,7 @@ class Plugin extends Item
 			$oXmlInfo->author = array();
 			$oXmlInfo->date = sprintf('%04d%02d%02d', $oDate->y, $oDate->m, $oDate->d);
 			$oXmlInfo->version = $oXml->version->body;
+			$oXmlInfo->homepage = $oXml->link->body;
 			$oXmlInfo->license = $oXml->license->body;
 			$oXmlInfo->license_link = $oXml->license->attrs->link;
 			$oXmlInfo->description = $oXml->description->body;
@@ -409,4 +440,4 @@ class Plugin extends Item
 }
 
 /* End of file Plugin.php */
-/* Location: ./modules/notification/classes/Entity/Item/Plugin.php */
+/* Location: ./modules/notification/classes/Entity/PluginModel/Plugin.php */

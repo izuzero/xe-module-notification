@@ -1,9 +1,8 @@
 <?php
 /*! Copyright (C) Eunsoo Lee. All rights reserved. */
 
-namespace Notification\Entity\Item;
-require_once __DIR__ . '/Item.php';
-require_once __DIR__ . '/PageHandler.php';
+namespace Notification\Entity\PageModel;
+use Notification\Entity\Item\Item;
 
 class Page extends Item
 {
@@ -92,4 +91,4 @@ class Page extends Item
 }
 
 /* End of file Page.php */
-/* Location: ./modules/notification/classes/Entity/Item/Page.php */
+/* Location: ./modules/notification/classes/Entity/PageModel/Page.php */
